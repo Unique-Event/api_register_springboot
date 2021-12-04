@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.unique.events.register.domain.Participant;
 import com.unique.events.register.repository.DAOParticipant;
-import com.unique.events.register.repository.DAOVersion;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -23,11 +22,7 @@ public class ParticipantController {
 		
 	    @Autowired
 		DAOParticipant daoParticipant;
-		
-	    @Autowired
-		DAOVersion daoVersion;
-		
-		
+	
 	    @RequestMapping(value = "/participants", method = RequestMethod.GET)
 	    public List<Participant> Get() {
 	        return daoParticipant.findAll();
