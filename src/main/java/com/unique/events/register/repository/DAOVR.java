@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.unique.events.register.domain.VR;
 
 @Repository
-public interface DAOVR extends JpaRepository <VR, Integer>{
+public interface DAOVR extends JpaRepository <VR, Long>{
 
 }

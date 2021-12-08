@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.unique.events.register.domain.Desktop;
 
 @Repository
-public interface DAODesktop extends JpaRepository<Desktop, Integer> {
+public interface DAODesktop extends JpaRepository<Desktop, Long> {
 
 }

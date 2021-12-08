@@ -13,7 +13,7 @@ public class Participant {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id_participant;
+	private long idParticipant;
 
 	@Column(name = "FirstName", length = 15, nullable = false)
 	private String firstName;
@@ -30,10 +30,14 @@ public class Participant {
 	@Column(name = "Password", length = 20, nullable = false)
 	private String password;
 
-	public Participant(Integer id_participant, String firstName, String lastName, String companyName, String job,
+	public Participant() {
+		super();
+	}
+
+	public Participant(Integer idParticipant, String firstName, String lastName, String companyName, String job,
 			String email, String phone, String password) {
 		super();
-		this.id_participant = id_participant;
+		this.idParticipant = idParticipant;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.companyName = companyName;
@@ -44,12 +48,12 @@ public class Participant {
 
 	}
 
-	public int getId_participant() {
-		return id_participant;
+	public long getIdParticipant() {
+		return idParticipant;
 	}
 
-	public void setId_participant(Integer id_participant) {
-		this.id_participant = id_participant;
+	public void setId_participant(Integer idParticipant) {
+		this.idParticipant = idParticipant;
 	}
 
 	public String getFirstName() {
@@ -108,9 +112,10 @@ public class Participant {
 		this.password = password;
 	}
 
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(companyName, email, firstName, id_participant, job, lastName, password, phone);
+		return Objects.hash(companyName, email, firstName, idParticipant, job, lastName, password, phone);
 	}
 
 	@Override
@@ -121,11 +126,12 @@ public class Participant {
 			Participant other = (Participant) obj;
 			return Objects.equals(companyName, other.companyName) && Objects.equals(email, other.email)
 					&& Objects.equals(firstName, other.firstName)
-					&& Objects.equals(id_participant, other.id_participant) && Objects.equals(job, other.job)
+					&& Objects.equals(idParticipant, other.idParticipant) && Objects.equals(job, other.job)
 					&& Objects.equals(lastName, other.lastName) && Objects.equals(password, other.password)
 					&& Objects.equals(phone, other.phone);
 		}
 		return false;
 	}
+	
 
 }

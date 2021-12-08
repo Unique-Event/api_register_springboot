@@ -16,13 +16,13 @@ public class Version {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id_version;
+	private long id_version;
 
-	@OneToOne(targetEntity = Desktop.class, fetch = FetchType.LAZY)
+	@OneToOne(targetEntity = Desktop.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "fk_version_desktop")
 	private List<Desktop> desktop = new ArrayList<>();
 
-	@OneToOne(targetEntity = VR.class, fetch = FetchType.LAZY)
+	@OneToOne(targetEntity = VR.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "fk_version_vr")
 	private List<VR> vr = new ArrayList<>();
 
@@ -30,14 +30,14 @@ public class Version {
 		super();
 	}
 
-	public Version(Integer id_version, List<Desktop> desktop, List<VR> vr) {
+	public Version(long id_version, List<Desktop> desktop, List<VR> vr) {
 		super();
 		this.id_version = id_version;
 		this.desktop = desktop;
 		this.vr = vr;
 	}
 
-	public Integer getId_version() {
+	public long getId_version() {
 		return id_version;
 	}
 
